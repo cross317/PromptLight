@@ -3,22 +3,20 @@ const SESSION_KEY = 'pf_session_started';
 const hasSessionStarted = sessionStorage.getItem(SESSION_KEY) === '1';
 
 document.addEventListener('DOMContentLoaded', () => {
+  sessionStorage.setItem(SESSION_KEY, '1');
 
-    sessionStorage.setItem(SESSION_KEY, '1');
+  const intro = document.getElementById('intro');
+  if (!intro) return;
 
-    const intro = document.getElementById('intro');
-    if (!intro) return;
+  if (hasSessionStarted) {
+    intro.remove();
+    return;
+  }
 
-    if (hasSessionStarted) {
-        intro.remove();
-        return;
-    }
-
-    intro.addEventListener('animationend', (e) => {
-    if (e.animationName === 'fadeOut') {
-        intro.remove();
-    }
+  intro.addEventListener('animationend', (e) => {
+    if (e.animationName === 'fadeOut') intro.remove();
   });
+  intro.addEventListener('animationcancel', () => intro.remove());
 });
 
 (function () {
@@ -37,13 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('a');
+    const a = e.target.closest('a[href]');
     if (!a) return;
 
     if (a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    if (a.hasAttribute('download') || (a.rel && a.rel.includes('external'))) return;
+
     const url = new URL(a.href, location.href);
-    if (url.origin !== location.origin) return;
-    if (url.pathname === location.pathname && url.hash) return;
+    if (!/^https?:$/.test(url.protocol)) return;               
+    if (url.origin !== location.origin) return;               
+    if (url.href === location.href) return;                    
+    if (url.pathname === location.pathname && url.hash) return; 
 
     e.preventDefault();
     if (reduced) { location.href = a.href; return; }
@@ -57,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('pageshow', (ev) => {
     if (ev.persisted) {
-      document.body.classList.remove('transition-enter','transition-exit','transition-active');
+      document.body.classList.remove('transition-enter', 'transition-exit', 'transition-active');
     }
   });
 })();
+
