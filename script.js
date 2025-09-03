@@ -1,18 +1,20 @@
+const SESSION_KEY = 'pf_session_started';
+
+const hasSessionStarted = sessionStorage.getItem(SESSION_KEY) === '1';
+
 document.addEventListener('DOMContentLoaded', () => {
+  sessionStorage.setItem(SESSION_KEY, '1');
+
   const intro = document.getElementById('intro');
   if (!intro) return;
 
-  let removed = false;
-  const removeIntro = () => {
-    if (removed) return;
-    removed = true;
+  if (hasSessionStarted) {
     intro.remove();
-  };
+    return;
+  }
 
   intro.addEventListener('animationend', (e) => {
-    if (e.animationName === 'fadeOut') removeIntro();
+    if (e.animationName === 'fadeOut') intro.remove();
   });
-  intro.addEventListener('animationcancel', removeIntro);
-  
-  setTimeout(removeIntro, 2000 + 2000 + 150);
+  intro.addEventListener('animationcancel', () => intro.remove());
 });
