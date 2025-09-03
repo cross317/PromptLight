@@ -27,5 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   intro.addEventListener('animationcancel', removeIntro);
 
-  setTimeout(removeIntro, 2000 + 2000 + 150);
+  //setTimeout(removeIntro, 2000 + 2000 + 150);
 });
