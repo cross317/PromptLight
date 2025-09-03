@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro');
   if (!intro) return;
 
-  const reduced =
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const hasSessionStarted = sessionStorage.getItem(SESSION_KEY) === '1';
   sessionStorage.setItem(SESSION_KEY, '1');
@@ -26,8 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   intro.addEventListener('animationend', (e) => {
     if (e.animationName === 'fadeOut') removeIntro();
   });
-
   intro.addEventListener('animationcancel', removeIntro);
 
-  setTimeout(removeIntro, 2000 + 2000 + 100);
+  setTimeout(removeIntro, 2000 + 2000 + 150);
 });
