@@ -19,6 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   intro.addEventListener('animationcancel', remove);
-
-  setTimeout(remove, 4100);
 });
