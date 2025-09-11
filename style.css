@@ -276,7 +276,10 @@ header {
     padding: 20px;
     }
 
-.tutorial-layout { padding: 12px; }
+.tutorial-layout { 
+    text-align: center;
+    padding: 12px; 
+}
 
 .video{
     justify-self: end; 
