@@ -278,13 +278,17 @@ header {
 }
 
 .video {
-    max-width: 2520px;   
-    margin: 24px auto;  
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin: 32px 0;
 }
 
 .video > video {
-    width: 100%;        
-    height: auto;       
+    width: 20%;       
+    max-width: 600px; 
+    min-width: 300px; 
+    height: auto;
     display: block;
     border: 0;
 }
