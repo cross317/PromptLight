@@ -273,8 +273,6 @@ header {
 .Video{
     width: 400px;
     height: 300px;
-    position: static;
-    
 }
 
 @keyframes fadeIn {
