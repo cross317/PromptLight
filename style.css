@@ -270,28 +270,32 @@ header {
     animation: fadeIn 1s forwards 0.5s;
 }
 
-.tutorial-text{
+.tutorial-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    padding: 24px 16px;
+}
+
+.tutorial-text {
     max-width: 800px;
-    font-size: 22px;
-    padding: 20px;
-    }
-
-.tutorial-layout { 
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
-    padding: 12px; 
+    line-height: 1.6;
+    font-size: 22px;
 }
 
-.video{
-    justify-self: end; 
-    margin-top: 40px;  
-    margin-right: 20px;  
+.video {
+    width: min(900px, 96vw);  
+    margin: 32px auto 0;     
 }
 
-.video > video{
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 0;
+.video > video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
 }
 
 @keyframes fadeIn {
