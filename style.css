@@ -270,10 +270,20 @@ header {
     animation: fadeIn 1s forwards 0.5s;
 }
 
-.Video{
-    width: 400px;
-    height: 300px;
+.tutorial-text {
+    max-width: 800px;
+    margin-right: 480px;
 }
+
+.tutorial-video-fixed {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 440px;           
+    max-width: 40vw;        
+    z-index: 1000;
+}
+.tutorial-video-fixed .video-frame { width:100%; aspect-ratio:16/9; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
