@@ -79,7 +79,7 @@ header {
 
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 90px 20px;
     background: linear-gradient(135deg, #3c657d, #2e4c5f); 
     color: white;
 }
@@ -189,7 +189,7 @@ header {
 .site-footer {
     background-color: #2e4c5f;
     color: #ffffff;
-    padding: 30px 20px;  
+    padding: 20px 10px;  
     border-top: 2px solid #00d4ff;
 }
 
@@ -197,10 +197,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;           
+    gap: 20px;           
     flex-wrap: wrap;     
     max-width: 1200px;
     margin: 0 auto;
+    font-size: medium;
 }
 
 .footer-column h3 {
