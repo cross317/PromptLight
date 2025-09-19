@@ -181,10 +181,37 @@ header {
 .hero3{
     font-size: 24px;
     text-align: center;
-    padding: 130px 130px;
+    padding: 120px 20px;
     background: linear-gradient(135deg, #3c657d, #2e4c5f); 
     color: white;
 }
+
+.premiumContent{
+    display: inline-block;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    background-color: #0090cc;
+    border: #00d4ff solid;
+    border-width: 2px;
+    padding: 15px;
+    padding-top: 5px;
+}
+
+#premiumP{
+    font-size: medium;
+    border-radius: 1%;
+}
+
+#premiumH{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+    color: #00d4ff;
+}
+
 
 .site-footer {
     background-color: #2e4c5f;
