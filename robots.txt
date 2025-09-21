@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 User-agent: *
 Allow: /
 
-Sitemap: https://cross317.github.io/PromptLight/
-=======
-User-agent: *
-Allow: /
-
-Sitemap: https://cross317.github.io/PromptLight/
->>>>>>> 080aa5aab4daea0233dd7f7b23ba810fc4cdcf2d
+Sitemap: https://cross317.github.io/PromptLight/sitemap.xml
