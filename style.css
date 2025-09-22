@@ -277,28 +277,97 @@ header {
 
 #intro {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    color: #00d4ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    font-weight: bold;
+    inset: 0;
     z-index: 9999;
-    animation: fadeOut 7s forwards 2s;
+    display: grid;
+    place-items: center;
+    background: #0e1726;         
+    color: #ffffff;
 }
 
-#intro h1 {
-    opacity: 0;
-    animation: fadeIn 1s forwards 0.5s;
-    display: flex;
+body.intro-active { overflow: hidden; }
+
+#intro .intro-inner {
     text-align: center;
-    justify-content: center;
-    font-size: 50px;
+    max-width: 900px;
+    padding: 24px;
+    opacity: 0;
+    transform: scale(0.96);
+    animation: introIn 600ms ease-out forwards;
+}
+
+.intro-title {
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.06;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+}
+
+.intro-slogan {
+    font-size: clamp(16px, 2.2vw, 22px);
+    line-height: 1.45;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: introUp 500ms ease-out forwards;
+    animation-delay: 180ms;  
+}
+
+.intro-actions {
+    margin-top: 22px;
+    display: inline-flex;
+    gap: 12px;
+}
+
+.intro-cta,
+.intro-skip {
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 12px 18px;
+    transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
+}
+
+.intro-cta {
+    background: #00d4ff;
+    color: #0d1117;
+    text-decoration: none;
+}
+.intro-cta:hover { transform: translateY(-1px); }
+
+.intro-skip {
+    background: transparent;
+    color: #e5e7eb;
+    border: 1px solid rgba(255,255,255,.25);
+}
+.intro-skip:hover { background: rgba(255,255,255,.06); }
+
+#intro.leaving {
+    animation: introOut 650ms ease forwards;
+}
+
+body.page-fade-in {
+    animation: pageIn 480ms ease forwards;
+}
+
+@keyframes introIn {
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes introUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introOut {
+    to { opacity: 0; }
+}
+
+@keyframes pageIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .tutorial-text {
@@ -322,19 +391,6 @@ header {
     height: auto;
     display: block;
     border: 0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-}
-
-@keyframes hideIntro {
-    to { opacity: 0; visibility: hidden; }
 }
 
 @media (max-width: 600px) {
@@ -388,5 +444,13 @@ header {
     
     .grid {
         grid-template-columns: 1fr; 
+    }
+
+    #intro .intro-inner,
+    .intro-slogan,
+    body.page-fade-in {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
     }
 }

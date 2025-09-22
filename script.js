@@ -1,22 +1,58 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  const INTRO_KEY = 'pl_intro_seen_v1';
   const intro = document.getElementById('intro');
   if (!intro) return;
 
-  const KEY = 'pf_session_started';
-  const isFirstVisit = sessionStorage.getItem(KEY) !== '1';
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!isFirstVisit) {
+  const seen = sessionStorage.getItem(INTRO_KEY) === '1';
+  if (seen) {
     intro.remove();
     return;
   }
 
-  sessionStorage.setItem(KEY, '1');
+  document.body.classList.add('intro-active');
 
-  const remove = () => intro.remove();
+  intro.style.animation = 'none';
+  intro.style.transition = 'none';
 
-  intro.addEventListener('animationend', (e) => {
-    if (e.animationName === 'fadeOut') remove();
+  function endIntro() {
+    if (!intro.parentNode) return;
+    document.body.classList.remove('intro-active');
+    document.body.classList.add('page-fade-in');
+    if (!prefersReducedMotion) {
+      intro.classList.add('leaving');
+      setTimeout(() => {
+        if (intro.parentNode) intro.remove();
+      }, 650);
+    } else {
+      intro.remove();
+    }
+    sessionStorage.setItem(INTRO_KEY, '1');
+  }
+
+  const skipBtn = document.getElementById('skip-intro');
+  if (skipBtn) {
+    skipBtn.addEventListener('click', () => {
+      endIntro();
+    });
+  }
+
+  intro.addEventListener('click', (e) => {
+    const cta = e.target.closest?.('.intro-cta');
+    if (cta) {
+      endIntro();
+    }
   });
+})();
 
-  intro.addEventListener('animationcancel', remove);
-});
+(function () {
+  window.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro');
+    if (!intro) {
+      document.body.classList.add('page-fade-in');
+    }
+  });
+})();
