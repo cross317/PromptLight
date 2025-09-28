@@ -394,11 +394,54 @@ body.page-fade-in {
 }
 
 .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
-.logo { display:block; height:auto; }  /* width/height già in HTML → evita CLS */
-.brand-text { font-weight:800; font-size:20px; color:#fff; } /* adatta ai tuoi colori */
+.logo { display:block; height:auto; }
+.brand-text { font-weight:800; font-size:20px; color:#fff; }
 
 .menu { list-style:none; display:flex; gap:16px; margin:0; padding:0; }
 .menu a { text-decoration:none; }
+
+.shapes-section {
+    background: #3c657d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px 20px;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.3rem;
+    gap: 30px;
+}
+
+.shape {
+    flex: 1;
+    padding: 60px;
+    background: rgba(255,255,255,0.15);
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 90%);
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.shape:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+}
+
+.APS{
+    font-size: 48px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.APS2{
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
 
 @media (max-width: 600px) {
     nav {
