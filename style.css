@@ -275,6 +275,37 @@ header {
     text-align: left;
 }
 
+.shape {
+    flex: 1;
+    padding: 60px;
+    background: rgba(255,255,255,0.15);
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 90%);
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.shape:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+}
+
+.APS{
+    font-size: 48px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.APS2{
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
 #intro {
     position: fixed;
     inset: 0;
@@ -410,37 +441,6 @@ body.page-fade-in {
     color: white;
     font-size: 1.3rem;
     gap: 30px;
-}
-
-.shape {
-    flex: 1;
-    padding: 60px;
-    background: rgba(255,255,255,0.15);
-    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 90%);
-    transition: transform 0.4s ease, background 0.3s ease;
-}
-
-.shape:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.25);
-}
-
-.APS{
-    font-size: 48px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-decoration: none;
-    color: white;
-}
-
-.APS2{
-    font-size: 36px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-decoration: none;
-    color: white;
 }
 
 @media (max-width: 600px) {
