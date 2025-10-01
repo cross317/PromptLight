@@ -306,6 +306,93 @@ header {
     color: white;
 }
 
+.help-section {
+    padding: 30px;
+    color: white;
+}
+
+.help-title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: cyan;
+    margin-bottom: 40px;
+}
+
+.help-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.help-text {
+    flex: 2;
+    font-size: 28px;
+    line-height: 1.6;
+    margin-left: 220px;
+    margin-bottom: 40px;
+}
+
+.help-shape2 {
+    flex: 1;
+    display: inline-block;
+    justify-content: left;
+    align-items: left;
+}
+
+.shape2 {
+    width: 250px;
+    height: 150px;
+    background: #2a6f97;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape2 a {
+    color: #00ffff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.shape2:hover{
+    transform: scale(1.05);
+    background: rgba(20, 118, 236, 0.908);
+}
+
+.help-shape3 {
+    flex: 1;
+    display: inline-block;
+    margin-left: 956px;
+    
+}
+
+.shape3 {
+    width: 250px;
+    height: 150px;
+    background: #2a6f97;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape3 a {
+    color: #00ffff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.shape3:hover{
+    transform: scale(1.05);
+    background: rgba(20, 118, 236, 0.908);
+}
+
+
 #intro {
     position: fixed;
     inset: 0;
