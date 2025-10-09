@@ -530,6 +530,26 @@ body.page-fade-in {
     gap: 30px;
 }
 
+.BPS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.CS{
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 150px;
+    margin-top: 20px;
+    margin-left: 50px;
+    background-color:#2e4c5f;
+
+}
+
 @media (max-width: 600px) {
     nav {
         text-align: center;
